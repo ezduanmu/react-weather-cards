@@ -21,7 +21,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build; git add .; git commit -m 'Source code to master branch'; git push origin master --force;",
+    "deploy": "gh-pages -d build; git add .; git commit -m 'Source code to master branch'; git push origin main --force;",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
