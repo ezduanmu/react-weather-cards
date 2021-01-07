@@ -64,7 +64,7 @@ const Container = styled.div`
 `;
 
 const FormElement = styled.form`
-  margin: 15px auto;
+  margin: 20px 8px 8px 8px;
   display: flex;
   position: relative;
   background: white;

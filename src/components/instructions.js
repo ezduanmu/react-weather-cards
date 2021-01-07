@@ -4,8 +4,8 @@ import styled from "@emotion/styled/";
 const Instructions = () => {
   return (
     <InstructionPanel>
-      Click a city name to search for a new city! <br />
-      Click the temperature units to switch between celsius and fahrenheit!
+      Click a city name to search for a new city <br />
+      Click the temperature units to switch between celsius and fahrenheit
     </InstructionPanel>
   );
 };

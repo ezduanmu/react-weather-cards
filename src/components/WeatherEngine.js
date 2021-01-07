@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import PulseLoader from "react-spinners/PulseLoader";
 import styled from "@emotion/styled/";
-import config from "./../config";
 
 import WeatherCard from "./WeatherCard/component";
 
 const WeatherEngine = ({ default_location }) => {
   // TODO: Hide API keys
   //const api_key = "bf746c8139c227d3504c054d39a6bdba";
-  const api_key = config.OPEN_WEATHER_API_KEY;
-  console.log(api_key);
+  const API_KEY = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
+  console.log(API_KEY);
 
   // useState (imported from React) is a Hook for using React state
   // We pass the initial state as argument.
@@ -38,7 +37,7 @@ const WeatherEngine = ({ default_location }) => {
     try {
       // Async functions need to await for Promise to be settled
       const response = await fetch(
-        `http://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&APPID=${api_key}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&APPID=${API_KEY}`
       );
       const responseJSON = await response.json(); // String of JSON data
       setWeather({

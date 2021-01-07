@@ -4,7 +4,7 @@ import styled from "@emotion/styled/";
 const Info = ({ celsius, condition }) => {
   const [useCelsius, setUseCelsius] = useState(true);
   let units = "°C";
-
+  console.log(condition);
   if (useCelsius) {
     return (
       <>
@@ -51,18 +51,18 @@ export default Info;
 
 const Temperature = styled.div`
   font-family: "Fira Sans", sans-serif;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 200;
+  position: relative;
 `;
 
 const Units = styled.span`
   cursor: pointer;
-  :hover {
-    top: -4px;
-  }
+  user-select: none;
 `;
 
 const Condition = styled.div`
   font-family: "Merriweather", sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  position: relative;
 `;

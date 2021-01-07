@@ -9,14 +9,17 @@ const WeatherCard = ({ celsius, condition, city, country, getWeather }) => {
   const getGradient = (celsius) => {
     let highColor = null;
     let lowColor = null;
-    if (celsius > 14) {
-      let topGreen = (1 - (celsius - 12) / 28) * 255;
+
+    if (celsius > 15) {
+      // "Hot" weather
+      let topGreen = (1 - (celsius - 15) / 25) * 255;
       let botGreen = topGreen / 2;
 
       highColor = `rgb(255, ${topGreen}, 0)`;
       lowColor = `rgb(255, ${botGreen}, 0)`;
     } else if (celsius <= 14) {
-      let topGreen = (1 - (celsius + 20) / 32) * 255;
+      // "Cold" weather
+      let topGreen = (1 - (celsius + 20) / 35) * 255;
       let botGreen = topGreen / 2;
 
       highColor = `rgb(0, ${topGreen}, 255)`;
@@ -28,7 +31,7 @@ const WeatherCard = ({ celsius, condition, city, country, getWeather }) => {
   const Card = styled.div`
     margin: 15px 15px;
     background: linear-gradient(
-      to top,
+      20deg,
       ${getGradient(celsius)[0]},
       ${getGradient(celsius)[1]}
     );
@@ -45,7 +48,7 @@ const WeatherCard = ({ celsius, condition, city, country, getWeather }) => {
     <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }}>
       <Card>
         <Location city={city} country={country} getWeather={getWeather} />
-        <Info celsius={celsius} consdition={condition} />
+        <Info celsius={celsius} condition={condition} />
       </Card>
     </motion.div>
   );
